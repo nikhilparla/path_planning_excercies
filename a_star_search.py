@@ -29,6 +29,12 @@ heur_func = [[9, 8, 7, 6, 5, 4],
              [6, 5, 4, 3, 2, 1], 
              [5, 4, 3, 2, 1, 0]]
 
+expand_grid =  [[-1, -1, -1, -1, -1, -1],
+                [-1, -1, -1, -1, -1, -1],
+                [-1, -1, -1, -1, -1, -1],
+                [-1, -1, -1, -1, -1, -1],
+                [-1, -1, -1, -1, -1, -1]]
+
 init = [0,  0]
 goal = [len(grid)-1, len(grid[0])-1]
 cost = 1
@@ -55,36 +61,41 @@ def search(grid, init, goal, cost):
         gvalue_list = []
         fvalue_list = []    # f = g + h(x,y)
 
+        _iter_exp = 0
+        expand_grid[curr[0]][curr[1]] = _iter_exp
+
         gvalue_list.append([curr, gvalue])
         fvalue_list.append([curr, fvalue])
         while(curr != goal):
-            neighbor_list = check_next(curr)
+                neighbor_list = check_next(curr)
 
-            # add the found neighbors to the open list if not alrady visited
-            # also check that it is not already in the open list
-            # also check that it is a valid neighbor
-            for i in neighbor_list:
-                    if (i not in visited_cells and i not in open and grid[i[0]][i[1]]==0):
-                            open.append(i)
-                            gvalue_list.append([i, gvalue+1])
-                            temp_fvalue = (gvalue + heur_func[i[0]][i[1]])
-                            fvalue_list.append([i, temp_fvalue])
+                # add the found neighbors to the open list if not alrady visited
+                # also check that it is not already in the open list
+                # also check that it is a valid neighbor
+                for i in neighbor_list:
+                        if (i not in visited_cells and i not in open and grid[i[0]][i[1]]==0):
+                                open.append(i)
+                                gvalue_list.append([i, gvalue+1])
+                                temp_fvalue = (gvalue + heur_func[i[0]][i[1]])
+                                fvalue_list.append([i, temp_fvalue])
 
-            gvalue_list.remove([curr,gvalue])
-            fvalue_list.remove([curr,fvalue])
-            visited_cells.append(curr)
-            
-            gvalue += 1
-            # get the lowest f-value in the list
-            lowest_f = temp_fvalue
-            for cell in fvalue_list:
-                    if cell[1] <= lowest_f:
-                            curr = cell[0]
-                            lowest_f = cell[1]
-            fvalue = lowest_f
-            print(fvalue_list)
+                gvalue_list.remove([curr,gvalue])
+                fvalue_list.remove([curr,fvalue])
+                visited_cells.append(curr)
+                
+                gvalue += 1
+                # get the lowest f-value in the list
+                lowest_f = temp_fvalue
+                for cell in fvalue_list:
+                        if cell[1] <= lowest_f:
+                                curr = cell[0]
+                                lowest_f = cell[1]
+                fvalue = lowest_f
+                print(fvalue_list)
+                _iter_exp += 1
+                expand_grid[curr[0]][curr[1]] = _iter_exp
 
-    # ----------------------------------------
+        # ----------------------------------------
 
         return [gvalue,curr[0], curr[1]]
 
@@ -109,4 +120,6 @@ def check_next(curr):
         
         return neighbor_list                
 
-print(search(grid, init, goal, cost))
+search(grid, init, goal, cost)
+for row in expand_grid:
+    print(row)
