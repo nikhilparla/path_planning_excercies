@@ -1,0 +1,12 @@
+## Path planning chapter and exercises
+Has the notes and exercises of the path planning module of self driving nano degree
+
+#### Structure
+.
+├ behavior_planner
+├ prediction
+├ search
+└ trajectory_generation
+
+- other than the search chapter the others were in another repo and so the files might not be organised
+- First go thorugh search/ and then prediction/ , then behavior_planner/ and then trajectory_generation

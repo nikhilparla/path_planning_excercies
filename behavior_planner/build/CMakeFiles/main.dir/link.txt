@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/main.dir/road.cpp.o CMakeFiles/main.dir/vehicle.cpp.o CMakeFiles/main.dir/cost.cpp.o CMakeFiles/main.dir/main.cpp.o  -o main 

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Nikhparl/Documents/Aptiv_MY_Documents/Acads/Udacity/path_planning/prediction/behavior_planner/cost.h
+vehicle.h
+/mnt/c/Users/Nikhparl/Documents/Aptiv_MY_Documents/Acads/Udacity/path_planning/prediction/behavior_planner/vehicle.h
+
+/mnt/c/Users/Nikhparl/Documents/Aptiv_MY_Documents/Acads/Udacity/path_planning/prediction/behavior_planner/vehicle.cpp
+vehicle.h
+/mnt/c/Users/Nikhparl/Documents/Aptiv_MY_Documents/Acads/Udacity/path_planning/prediction/behavior_planner/vehicle.h
+algorithm
+-
+iterator
+-
+map
+-
+string
+-
+vector
+-
+cost.h
+/mnt/c/Users/Nikhparl/Documents/Aptiv_MY_Documents/Acads/Udacity/path_planning/prediction/behavior_planner/cost.h
+
+/mnt/c/Users/Nikhparl/Documents/Aptiv_MY_Documents/Acads/Udacity/path_planning/prediction/behavior_planner/vehicle.h
+map
+-
+string
+-
+vector
+-
+
